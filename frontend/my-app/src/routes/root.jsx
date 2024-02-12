@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../components/header";
+import Footer from "../components/footer";
 const App = () => {
   return (
     <div>
@@ -378,7 +379,7 @@ const App = () => {
       </div>
       {/* End Contact Section */}
 
-     
+     <Footer/> 
 
       {/* Javascript files */}
       <script src="js/jquery.min.js"></script>
