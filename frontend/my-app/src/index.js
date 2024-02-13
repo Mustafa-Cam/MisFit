@@ -1,16 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
+import App from "./App.js";
+import reportWebVitals from "./reportWebVitals.js";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Root from "./routes/root.jsx";
-import About from "./routes/about.jsx";
-import Contact from "./routes/contact.jsx";
-import Gallery from "./routes/gallery.jsx";
-import LatestNews from "./routes/news.jsx";
-import TrainerPage from "./routes/trainer.jsx";
-import ServicesPage from "./routes/service.jsx";
+import Root from "./pages/root.jsx";
+import About from "./pages/about.jsx";
+import Contact from "./pages/contact.jsx";
+import Gallery from "./pages/gallery.jsx";
+import LatestNews from "./pages/news.jsx";
+import TrainerPage from "./pages/trainer.jsx";
+import ServicesPage from "./pages/service.jsx";
+import Login from "./pages/login.jsx";
+import Register from "./pages/register.jsx";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -39,6 +42,14 @@ const router = createBrowserRouter([
   {
     path: "/service",
     element: <ServicesPage />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "*",
+    element: <Register />,
   },
 ]);
 

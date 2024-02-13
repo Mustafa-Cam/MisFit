@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
+
 function Header() {
   useEffect(() => {
     const currentLocation = window.location.pathname;
@@ -22,6 +23,7 @@ function Header() {
       }
     });
   }, []);
+
   return (
     <div>
       {/* Header */}
@@ -31,6 +33,7 @@ function Header() {
         <link rel="stylesheet" href="css/responsive.css" />
         <link rel="icon" href="images/fevicon.png" type="image/gif" />
         <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css" />
+
         <link
           rel="stylesheet"
           href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
@@ -60,7 +63,7 @@ function Header() {
                 </div>
               </div>
               <div className="col-xl-9 col-lg-9 col-md-9 col-sm-9">
-                <nav className="navigation navbar navbar-expand-md navbar-dark ">
+                <nav className="navigation navbar navbar-expand-md navbar-dark justify-content-end">
                   <button
                     className="navbar-toggler"
                     type="button"
@@ -73,10 +76,10 @@ function Header() {
                     <span className="navbar-toggler-icon"></span>
                   </button>
                   <div
-                    className="collapse navbar-collapse"
+                    className="collapse navbar-collapse justify-content-end"
                     id="navbarsExample04"
                   >
-                    <ul className="navbar-nav mr-auto">
+                    <ul className="navbar-nav">
                       <li className="nav-item ">
                         <a className="nav-link" href="/">
                           Home
@@ -110,6 +113,11 @@ function Header() {
                       <li className="nav-item">
                         <a className="nav-link" href="contact">
                           Contact Us
+                        </a>
+                      </li>
+                      <li className="nav-item">
+                        <a className="nav-link " href="login">
+                          Login
                         </a>
                       </li>
                     </ul>

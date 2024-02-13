@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../components/header";
 import Footer from "../components/footer";
 const App = () => {
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const nextSlide = () => {
+    const totalSlides = document.querySelectorAll('.carousel-item').length;
+    setCurrentSlide((currentSlide + 1) % totalSlides);
+  };
+
+  const previousSlide = () => {
+    const totalSlides = document.querySelectorAll('.carousel-item').length;
+    setCurrentSlide((currentSlide - 1 + totalSlides) % totalSlides);
+  };
+
   return (
     <div>
       <Header />
+
+
+
       {/* Banner Section */}
       <section className="banner_main">
         <div
@@ -17,30 +33,38 @@ const App = () => {
             <li
               data-target="#myCarousel"
               data-slide-to="0"
-              className="active"
+              className={currentSlide === 0 ? "active" : ""}
             ></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" 
+            data-slide-to="1"
+               className={currentSlide === 1 ? "active" : ""}>
+            </li>
+            <li data-target="#myCarousel" 
+            data-slide-to="2"
+            className={currentSlide === 2 ? "active" : ""}
+            ></li>
           </ol>
 
           {/* Carousel Items */}
           <div className="carousel-inner">
-            <div className="carousel-item active">
+            <div className={`carousel-item ${currentSlide === 0 ? "active" : ""}`}>
+
               <img
                 className="first-slide"
                 src="images/banner1.jpg"
                 alt="First slide"
               />
+
               <div className="container"></div>
             </div>
-            <div className="carousel-item">
+            <div className={`carousel-item ${currentSlide === 1 ? "active" : ""}`}> {/* currentslide 1 e eşitse active yap değilse yapma diyor*/}
               <img
                 className="second-slide"
                 src="images/banner2.jpg"
                 alt="Second slide"
               />
             </div>
-            <div className="carousel-item">
+            <div className={`carousel-item ${currentSlide === 2 ? "active" : ""}`}>
               <img
                 className="third-slide"
                 src="images/banner3.jpg"
@@ -55,19 +79,22 @@ const App = () => {
             href="#myCarousel"
             role="button"
             data-slide="prev"
+            onClick={previousSlide}
           >
             <i className="fa fa-long-arrow-left" aria-hidden="true"></i>
             <span className="sr-only">Previous</span>
-          </a>
+          </a> 
           <a
             className="carousel-control-next"
             href="#myCarousel"
             role="button"
             data-slide="next"
+            onClick={nextSlide}
           >
             <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
             <span className="sr-only">Next</span>
-          </a>
+          </a> 
+
         </div>
         <div className="banner_text">
           <div className="container">
@@ -91,6 +118,12 @@ const App = () => {
         </div>
       </section>
       {/* End Banner Section */}
+
+
+
+
+
+
 
       {/* About Section */}
       <div className="about">
